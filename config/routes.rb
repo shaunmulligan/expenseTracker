@@ -61,6 +61,8 @@ Radd::Application.routes.draw do
       end
 
       resources :record
+      resources :expense
+      resources :category
 
       resources :users, only: [:create]
       match '/users' => 'users#show', :via => :get

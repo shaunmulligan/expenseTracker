@@ -1,7 +1,9 @@
-function RecordCtrl($scope, Session, Records) {"use strict";
+function RecordCtrl($scope, Session, Records, Expenses) {"use strict";
 
     $scope.user = Session.requestCurrentUser();
-    $scope.records = Records.index();
+    $scope.records = Expenses.index();
+    console.log($scope.user)
+    console.log(Expenses.index());
 
     $scope.logout = function() {
         Session.logout();

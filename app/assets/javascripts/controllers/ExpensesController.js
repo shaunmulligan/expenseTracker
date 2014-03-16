@@ -1,6 +1,5 @@
-expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function ($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel,Session) {
+expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function ($scope, $location, $routeParams, $rootScope, UserModel, ExpensesModel, CategoriesModel, CurrenciesModel, Session, Expenses) {
   'use strict';
-  
   var now,
     currentCategoryId,
     v,
@@ -10,6 +9,7 @@ expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function
     $ival = $('div.ival');
 
   $scope.user = Session.requestCurrentUser();
+  console.log(Expenses.index().user);
   $scope.logout = function() {
         Session.logout();
   };

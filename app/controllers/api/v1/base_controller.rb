@@ -16,6 +16,12 @@ class Api::V1::BaseController < ActionController::Base
     end
   end
 
+  def expense_not_found(error)
+    respond_to do |format|
+      format.json { render :json => {:error => error.message}, :status => 404 }
+    end
+  end
+
   def generic_exception(error)
     respond_to do |format|
       format.json { render :json => {:error => error.message}, :status => 500 }

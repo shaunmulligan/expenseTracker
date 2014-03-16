@@ -34,7 +34,7 @@
 
 //= require_tree
 
-var expenseTrackerAppModule = angular.module('expenseTracker', ['sessionService','recordService','$strap.directives']);
+var expenseTrackerAppModule = angular.module('expenseTracker', ['sessionService','recordService','expenseService','$strap.directives']);
 
 expenseTrackerAppModule.config(['$httpProvider', function($httpProvider){
         $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
@@ -89,6 +89,6 @@ expenseTrackerAppModule.config(['$httpProvider', function($httpProvider){
       .when('/settings/maximum-per-spending', {templateUrl: 'partials/settings/maximum-per-spending.html', controller: 'expenseTracker.SettingsController'})
   
   // root path
-      .otherwise({redirectTo: '/expenses/add'});
+      //.otherwise({redirectTo: '/expenses/add'});
   }]);
 
