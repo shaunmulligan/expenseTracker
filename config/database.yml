@@ -7,9 +7,9 @@ test:
 development:
   adapter: postgresql
   encoding: utf8
-  database: radd_development
-  username: radd
-  password: 4radd!
+  database: expenseapp_db_dev
+  username: shaun
+  password: skate19
 
 production:
   adapter: postgresql
