@@ -5,7 +5,7 @@ angular.module('expenseService', ['ngResource'])
             create: { method: 'POST' }
         });
     })
-    .factory('Secure', function($resource){
+    .factory('SecureExp', function($resource){
         return $resource('/api/expense/:expense_id.json', {}, {
             show: { method: 'GET' },
             update: { method: 'PUT' },

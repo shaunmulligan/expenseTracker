@@ -9,7 +9,7 @@ expenseTrackerAppModule.controller('expenseTracker.ExpensesController', function
     $ival = $('div.ival');
 
   $scope.user = Session.requestCurrentUser();
-  console.log(Expenses.index().user);
+  
   $scope.logout = function() {
         Session.logout();
   };

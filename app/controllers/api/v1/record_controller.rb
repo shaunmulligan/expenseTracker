@@ -6,12 +6,12 @@ class Api::V1::RecordController < Api::V1::BaseController
   end
 
   def show
-    @data = Record.find(params[:id]).to_json()
+    @data = current_user.records.find(params[:id]).to_json()
     respond_with(@data)
   end
 
   def update 
-    @data = Record.find(params[:id])
+    @data = current_user.records.find(params[:id])
     respond_to do |format|
       if @data.update_attributes(record_params)
         format.json { head :no_content }
@@ -22,13 +22,13 @@ class Api::V1::RecordController < Api::V1::BaseController
   end
 
   def create
-    @data = Record.create(record_params)
-    @data.save
-    respond_with(@data)
+    data = current_user.records.create(record_params)
+    data.save
+    respond_with(data)
   end
 
   def destroy
-    @data = Record.find(params[:id])
+    @data = current_user.find(params[:id])
     @data.destroy
     respond_to do |format|
       format.json  { head :ok }
@@ -38,6 +38,6 @@ class Api::V1::RecordController < Api::V1::BaseController
   private
 
   def record_params
-    params.require(:record).permit(:secure)
+    params.require(:record).permit(:secure, :data)
   end
 end

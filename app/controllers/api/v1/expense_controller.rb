@@ -6,12 +6,12 @@ before_filter :authenticate_user!
   end
 
   def show
-    @data = Expense.find(params[:id]).to_json()
+    @data = current_user.expenses.find(params[:id]).to_json()
     respond_with(@data)
   end
 
   def update 
-    @data = Expense.find(params[:id])
+    @data = current_user.expenses.find(params[:id])
     respond_to do |format|
       if @data.update_attributes(expense_params)
         format.json { head :no_content }
@@ -22,13 +22,13 @@ before_filter :authenticate_user!
   end
 
   def create
-    @data = Expense.create(expense_params)
+    @data = current_user.expenses.create(expense_params)
     @data.save
     respond_with(@data)
   end
 
   def destroy
-    @data = Expense.find(params[:id])
+    @data = current_user.expenses.find(params[:id])
     @data.destroy
     respond_to do |format|
       format.json  { head :ok }

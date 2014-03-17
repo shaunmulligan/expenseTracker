@@ -34,7 +34,7 @@
 
 //= require_tree
 
-var expenseTrackerAppModule = angular.module('expenseTracker', ['sessionService','recordService','expenseService','$strap.directives']);
+var expenseTrackerAppModule = angular.module('expenseTracker', ['sessionService','recordService','expenseService','categoryService','$strap.directives']);
 
 expenseTrackerAppModule.config(['$httpProvider', function($httpProvider){
         $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');

@@ -1,7 +1,9 @@
 //ExpenseModel Object constructor
-expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
+expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel, Session, Expenses) {
 	'use strict';
 
+	var user = Session.requestCurrentUser();
+	
 	// @TODO: use the ID from the backend / database
 	var nextIDCounter = 9,
 		categoryColors = CategoriesModel.getAvailableColors(),
@@ -120,12 +122,17 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 	}
 
 	function range(start, end) {
-    var foo = [];
-    for (var i = start; i <= end; i++) {
-        foo.push(i);
-    }
-    return foo;
+	    var foo = [];
+	    for (var i = start; i <= end; i++) {
+	        foo.push(i);
+	    }
+    	return foo;
 	};
+
+	//private expense list accessor to backend
+	function getExpenseList(){
+		return Expenses.index()
+	}
 
 	return {
 		initNewExpense : function () {
@@ -140,6 +147,8 @@ expenseTrackerAppModule.service('ExpensesModel', function (CategoriesModel) {
 		},
 
 		getExpenses : function () {
+			console.log("printing expenses from backend")
+			console.log(getExpenseList());
 			return expenses.reverse();
     	},
 

@@ -5,7 +5,7 @@ angular.module('recordService', ['ngResource'])
             create: { method: 'POST' }
         });
     })
-    .factory('Secure', function($resource){
+    .factory('SecureRec', function($resource){
         return $resource('/api/record/:record_id.json', {}, {
             show: { method: 'GET' },
             update: { method: 'PUT' },
