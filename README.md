@@ -1,17 +1,10 @@
-#RADD [![Build Status](https://travis-ci.org/jesalg/RADD.png?branch=master)](https://travis-ci.org/jesalg/RADD)
+###Expense Tracker ###
+application for Interactive Programming Course, KTH.
 
-A basic example of how to use Rails, Devise and Angular.js in conjunction. 
+###Structure
+The angularjs stuff is in app/assets/js
 
-This architecture treats Rails as a JSON API and AngularJS as the front-end framework which will do view rendering. 
-
-More details on my blog posts:
-
-- [Authentication with Rails, Devise and AngularJS][1]
-- [Architecting RESTful Rails 4 API][2]
-
-###Demo
-
-http://radd.herokuapp.com/
+The partials and HTML stuff is in the public folder
 
 ###Install
 
@@ -21,20 +14,9 @@ http://radd.herokuapp.com/
 
 ``rails s``
 
-###Testing
+###Change DB params
 
-Run this to execute the API test suite:
+Need to have postgresql running.
 
-``rake db:test:prepare``
-
-``rspec spec``
-
-###Documentation
-
-API documentation is located at `/docs` and is generated using passing acceptance tests.
-
-Run this to regenerate the docs: `rake docs:generate`
-
-  [1]: http://jes.al/2013/08/authentication-with-rails-devise-and-angularjs/
-  [2]: http://jes.al/2013/10/architecting-restful-rails-4-api/
+change username and password to you local DB
 
